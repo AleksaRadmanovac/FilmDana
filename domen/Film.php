@@ -10,7 +10,8 @@
         {
             $this->naziv = $naziv;
             $this->reziser = $reziser;
-            $datumString = (string)$datum['mday'].' '.(string)$datum['mon'].' '.(string)$datum['year'];
+            $datum = getdate();
+            $datumString = (string)$datum['year'].'-'.(string)$datum['mon'].'-'.(string)$datum['mday'];
             $this->datumDodavanja = $datumString;
         }
 
@@ -22,14 +23,14 @@
 
         public function dodajFilm(mysqli $conn)
         {
-            echo $this->datumDodavanja;
-            $query = "INSERT INTO film (Naziv, Reditelj, DatumDodavanja) values ('$this->naziv', '$this->reziser', STR_TO_DATE('$this->datumDodavanja','%d %m %Y'))";
+            $query = "INSERT INTO film (Naziv, Reditelj, DatumDodavanja) values ('$this->naziv', '$this->reziser', STR_TO_DATE('$this->datumDodavanja','%Y-%m-%d'))";
             return $conn->query($query);
         }
 
-        public static function vratiSveDanasnje($danasnjiDatum)
+        public static function vratiSveDatum(mysqli $conn, $datum)
         {
-            $query = "SELECT * FROM film WHERE datumDodavanja = $danasnjiDatum";
+            $query = "SELECT * FROM film WHERE DatumDodavanja = STR_TO_DATE('$datum', '%Y-%m-%d')";
+            return $conn->query($query);
         }
     
     
