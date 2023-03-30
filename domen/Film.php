@@ -32,7 +32,13 @@
             $query = "SELECT * FROM film WHERE DatumDodavanja = STR_TO_DATE('$datum', '%Y-%m-%d')";
             return $conn->query($query);
         }
-    
+        
+        public static function PretragaFilmova(mysqli $conn, $nazivFilma)
+        {
+            $query = "SELECT * FROM film WHERE Naziv LIKE '$nazivFilma%'";
+            return $conn->query($query);
+        }
+
     
     }
 

@@ -1,0 +1,120 @@
+html, body {height: 100%;}
+body {
+    display:block;
+    background-image: url("Slike/Pozadina.jpg");
+    background-size:     cover;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#film {
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    border:  2px;
+    border-color: black;
+    border-style:groove;
+    background-color: rgb(120, 120, 120, 0.3);
+    border-radius: 30%;
+    width: 200px;
+    margin: 2%;
+}
+
+#filmNaziv{
+    height: 100%;
+}
+
+#filmRadio {
+    margin: auto;
+    margin-right: 10px;
+
+}
+
+#listaFilmova {
+    position: absolute;
+   background-color: rgb(240, 240, 240, 0.5);
+   border-radius: 5%;
+   border:  2px;
+    border-color: black;
+    border-style:groove;
+   width: 25%;
+   height:  50%;
+   margin-left: 70%;
+   margin-top: 5%;
+}
+
+#glasaj {
+}
+
+#glasaj * {
+    margin: 1%;
+
+}
+
+#response {
+    height: 30px;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    /*border:  2px;
+    border-color: black;
+    border-style:groove;
+    background-color: aqua;*/
+    width: 200px;
+    text-align: center;
+}
+
+#rezultati {
+    position: absolute;
+    display: flexbox;
+    background-color: rgb(240, 240, 240, 0.5);
+    border-radius: 5%;
+    border:  2px;
+     border-color: black;
+     border-style:groove;
+    width: 25%;
+    height:  30%;
+    margin-left: 70%;
+    top: 65%;
+
+}
+
+#rezultatiUpit {
+    margin-top: 5%;
+}
+
+#pretraga {
+    position: absolute;
+    background-color: rgb(240, 240, 240, 0.5);
+    border-radius: 5%;
+    border:  2px;
+     border-color: black;
+     border-style:groove;
+    width: 25%;
+    height:  30%;
+    left: 42%;
+    top: 65%;
+    overflow: auto;
+}
+
+#stavkaRezultata *{
+    margin-top: 5%;
+}
+
+#stavkaRezultataPret {
+    border: 0ch;
+    border-bottom: 2px;
+    border-color: black;
+     border-style:groove;
+}
+
+#RezultatPret *{
+    margin: 3%;
+}
+
+
+

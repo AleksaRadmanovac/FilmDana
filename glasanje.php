@@ -20,8 +20,10 @@ if(isset($_POST['film']) != NULL && isset($_POST['email']) != NULL && !empty($_P
             $pok = FALSE;
         }
     }
-    if($pok)
+    if($pok){
         Glas::dodajGlas($conn, $film, $email);
+        echo "Uspesno ste glasali";
+    }
         else 
         {
             echo "Vec ste glasali danas";

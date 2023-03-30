@@ -10,9 +10,6 @@
     
 
         public static function dodajGlas(mysqli $conn, $filmId, $email) {
-            
-            echo $filmId;
-            echo $email;
             $query = "Insert into glaszaFilm(FilmId,Email) values ('$filmId','$email')";
             return $conn->query($query);
         }

@@ -5,14 +5,15 @@ include 'domen\Film.php';
 
 if(isset($_POST['InputDatum']) && !empty($_POST['InputDatum']))
 {
+    $odgovor = '<div id="stavkaRezultata">';
     $conn = OpenCon();
     $pok = TRUE;
     $datum = $_POST['InputDatum'];
-    echo $datum;
+    $odgovor .= '<p> Rezultati glasanja za dan: ' . $datum . '</p>';    
     $listaFilmovaRez = Film::vratiSveDatum($conn, $datum);
-    while($red = $listaFilmovaRez->fetch_array())
-    {
-        echo $red['Naziv'];
+    if($red = $listaFilmovaRez->fetch_array()){
+    do{
+        $odgovor .= '<p>' . $red['Naziv'] . ': ';
         $filmId = $red['Id'];
         $listaGlasovaZaFilmRez = Glas::vratiSveZaFilm($conn, $filmId);
         $brojac = 0;
@@ -20,8 +21,12 @@ if(isset($_POST['InputDatum']) && !empty($_POST['InputDatum']))
         {
             $brojac = $brojac + 1;
         }
-        echo $brojac;
+        $odgovor .= $brojac . ' glasova</p>';
+    }while($red = $listaFilmovaRez->fetch_array());
     }
+    else {$odgovor .= '<p> Nema filmova za navedeni dan' . '</p>';}
+    $odgovor .= '</div>';
+    echo $odgovor;
 }
 
 
